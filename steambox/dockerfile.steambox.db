@@ -1,0 +1,14 @@
+FROM debian:bookworm-slim
+
+RUN \
+ apt update &&\
+ apt install -y wget tar lib32gcc-s1 &&\
+ useradd -ms /bin/sh user &&\
+ echo 'user:user' | chpasswd &&\
+ passwd -l root &&\
+ su -c '\
+  wget -qO - -- http://media.steampowered.com/client/steamcmd_linux.tar.gz |\
+  tar -xzf - -C ~ &&\
+  ~/steamcmd.sh +quit \
+ ' user
+WORKDIR /home/user

@@ -1,0 +1,9 @@
+FROM maxhougas/steambox:db
+
+RUN \
+ su -c '\
+  ~/steamcmd.sh +force_install_dir ~/zomboid +login anonymous +app_update 380870 -beta unstable +quit &&\
+  mkdir -p ~/Zomboid/Server \
+ ' user
+
+EXPOSE 16261-16262/udp

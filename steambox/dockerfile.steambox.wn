@@ -1,0 +1,3 @@
+FROM maxhougas/steambox:db
+
+RUN apt update && apt install -y wine

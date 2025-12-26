@@ -1,0 +1,18 @@
+FROM maxhougas/steambox:db
+
+RUN \
+ apt update &&\
+ apt install -y xz-utils &&\
+ su -c '\
+  wget -qO - -- https://www.factorio.com/get-download/2.0.60/headless/linux64 |\
+  tar -Jxf - -C ~ \
+ ' user
+
+EXPOSE 34197/udp
+
+
+# mkdir -p ~/factorio/saves ~/factorio/mods &&\
+# cp ~/factorio/data/map-gen-settings.example.json ~/factorio/map-gen-settings.json &&\
+# cp ~/factorio/data/map-settings.example.json ~/factorio/map-settings.json &&\
+# cp ~/factorio/data/server-settings.example.json ~/factorio/server-settings.json &&\
+# cp ~/factorio/data/server-whitelist.example.json ~/factorio/server-whitelist.json \
