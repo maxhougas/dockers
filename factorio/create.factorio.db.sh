@@ -1,19 +1,19 @@
 #!/bin/sh
 
 NETWORK=bridge
-FROOT=/home/user/factorio
-HPATH=$(realpath .)/mount
+SROOT=/home/user/factorio
+MOUNT="$(realpath $0 | grep '.*/')"mount
 
 
 docker create \
  --network $NETWORK \
  -p 0.0.0.0:34197:34197/udp \
- -v $HPATH/map-gen-settings.json:$FROOT/map-gen-settings.json \
- -v $HPATH/map-settings.json:$FROOT/map-settings.json \
- -v $HPATH/server-settings.json:$FROOT/server-settings.json \
- -v $HPATH/server-whitelist.json:$FROOT/server-whitelist.json \
- -v $HPATH/saves:$FROOT/saves \
- -v $HPATH/mods:$FROOT/mods \
+ -v $MOUNT/map-gen-settings.json:$SROOT/map-gen-settings.json \
+ -v $MOUNT/map-settings.json:$SROOT/map-settings.json \
+ -v $MOUNT/server-settings.json:$SROOT/server-settings.json \
+ -v $MOUNT/server-whitelist.json:$SROOT/server-whitelist.json \
+ -v $MOUNT/saves:$SROOT/saves \
+ -v $MOUNT/mods:$SROOT/mods \
  --name factorio maxhougas/factorio:db \
  su -c "\
   test ! -e factorio/saves/my-save.zip &&\

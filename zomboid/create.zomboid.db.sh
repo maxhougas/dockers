@@ -1,18 +1,17 @@
 #!/bin/sh
 
-test -z "$(realpath . | grep 'zomboid$')" &&\
-printf "Probably not in correct directory\n" &&\
-exit 1
-
 ADMINPASS=adminpass
 NETWORK=bridge
 SERVERNAME=servername
+SROOT=/home/user/Zomboid
+
+MOUNT="$(realpath $0 | grep -o '.*/')"mount
 
 docker create \
  --network $NETWORK \
  -p 0.0.0.0:16261-16261:16262-16262/udp \
- -v $(realpath .)/mount/serversettings.ini:/home/user/Zomboid/Server/$SERVERNAME.ini \
- -v $(realpath .)/mount/saves:/home/user/Zomboid/Saves/Multiplayer \
+ -v $MOUNT/serversettings.ini:$SROOT/Server/$SERVERNAME.ini \
+ -v $MOUNT/saves:$SROOT/Saves/Multiplayer \
  --name zomboid maxhougas/zomboid:db \
  su -c "\
   printf \"$ADMINPASS\n$ADMINPASS\n\" |\
