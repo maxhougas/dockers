@@ -1,13 +1,8 @@
 #!/bin/sh
 
-ISPATH=$(realpath . | grep -o '.*dockers')
-test -z "$ISPATH" &&\
-printf "Probably not in correct directory\n" &&\
-exit 1
+PATHROOT="$(realpath $0 | grep -o '.*/')"
 
-cd $ISPATH
-
-chmod -R 600 .
-chmod 700 *.sh
-chmod 700 */*.sh
-chmod -R 777 */mount
+chmod -R 600 $PATHROOT
+chmod 700 $PATHROOT/*.sh
+chmod 700 $PATHROOT/*/*.sh
+chmod -R 666 $PATHROOT/*/mount
