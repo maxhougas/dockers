@@ -21,7 +21,7 @@ docker create \
     --create factorio/saves/my-save.zip \
     --map-gen-settings factorio/map-gen-settings.json \
     --map-settings factorio/map-settings.json; \
-  factorio/bin/x64/factorio \
-   --start-server-load-latest \
-   --server-settings factorio/server-settings.json \
+   factorio/bin/x64/factorio \
+    --start-server-load-latest \
+    --server-settings factorio/server-settings.json \
  " user

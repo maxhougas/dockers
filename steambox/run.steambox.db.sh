@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -ti --name steambox steambox:db
+docker run -d --name steambox maxhougas/steambox:db tail -f /dev/null
