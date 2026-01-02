@@ -21,6 +21,3 @@ docker create \
   ~/finalizemods.sh &&\
   ./arma3server_x64 -par=/home/user/params \
  ' user
-
-
-#  ./arma3server_x64 -par=/home/user/params \

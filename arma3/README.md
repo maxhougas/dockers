@@ -32,10 +32,11 @@ A continuation of arma1button
 - create.arma3.db.sh: Creates the arma3 container.
 - create.arma3.mod.sh: Creates the arma3mod container.
 - knownmods: Long list of mods hopefully in dependency order.
-- mount/creds: Steam credentials UNAME PASS AUTH.
+- mount/creds: Steam credentials UNAME PASS AUTH; create yourself.
 - mount/finalizemissions.sh: Links mission files.
 - mount/finalizemods.sh: Normalizes mod files; links bikeys.
 - mount/listdlc: ID list of cdlc.
+  - Valid IDs `gm, vn, csla, ws, spe, rf, ef`
 - mount/listmissions: ID=NAME list of missions.
 - mount/listmods: ID=NAME list of mods; must be in dependency order.
 - mount/missions: Shared space for mission files.
