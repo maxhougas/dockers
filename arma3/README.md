@@ -14,7 +14,7 @@ A continuation of arma1button
 - Build arma3:mod
   - `./build.arma3.mod.sh`
 - Create arma3mod
-  - `./create.arma3.mod.sh``
+  - `./create.arma3.mod.sh`
 - Start arma3mod
   - `docker start arma3mod`
 - Build arma3:db 
