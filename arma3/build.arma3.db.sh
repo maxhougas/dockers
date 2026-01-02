@@ -1,11 +1,11 @@
 #!/bin/sh
 
-PATHROOT=$(realpath $0 | grep '^.*/')
+PATHROOT=$(realpath $0 | grep -o '^.*/')
 
 echo 'FROM maxhougas/steambox:db' > "$PATHROOT"dockerfile.arma3.db
 echo "RUN \
  su -c '\
-  mkdir -p ~/arma \"~/.local/share/Arma 3 - Other Profiles/Player\"; \
+  mkdir -p ~/arma ~/.local/share/Arma\ 3\ -\ Other\ Profiles/Player; \
   ln -sfT ~/mods ~/arma/mods; \
   ~/steamcmd.sh +force_install_dir ~/arma +login $(cat mount/creds) +app_update 233780 -beta creatordlc +quit; \
  ' user" >> "$PATHROOT"dockerfile.arma3.db

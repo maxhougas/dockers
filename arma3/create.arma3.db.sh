@@ -17,7 +17,9 @@ docker create \
  -v $MOUNT/listmods:/home/user/listmods \
  --name arma3 maxhougas/arma3:db \
  su -c '\
-  ~/finalizemissions.sh &&\
-  ~/finalizemods.sh &&\
-  ./arma3server_x64 -par=/home/user/params \
+  tail -f /dev/null
  ' user
+
+#  ./arma3server_x64 -par=/home/user/params \
+#  ~/finalizemissions.sh &&\
+#  ~/finalizemods.sh &&\
