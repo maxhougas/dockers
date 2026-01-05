@@ -1,3 +1,8 @@
+Verify mods of id=!!ID!! with
+```
+https://steamcommunity.com/workshop/filedetails/?id=!!ID!!
+```
+
 ##BASE##
 233780=a3server
 107410=a3client
@@ -29,6 +34,7 @@
 3346427969=hatg
 3333302397=jcainfantryarsenal
 1593431569=magrepack
+769440155=optre
 632435682=removestamina
 894678801=tfar
 1779063631=zen
