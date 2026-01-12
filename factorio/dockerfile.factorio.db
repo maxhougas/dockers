@@ -4,7 +4,7 @@ RUN \
  apt update &&\
  apt install -y xz-utils &&\
  su -c '\
-  wget -qO - -- https://www.factorio.com/get-download/2.0.60/headless/linux64 |\
+  wget -qO - -- https://factorio.com/get-download/stable/headless/linux64 |\
   tar -Jxf - -C ~ \
  ' user
 

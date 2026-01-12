@@ -2,8 +2,7 @@
 
 NETWORK=bridge
 SROOT=/home/user/factorio
-MOUNT="$(realpath $0 | grep '.*/')"mount
-
+MOUNT=$(realpath $0 | grep -Po '.*/')mount
 
 docker create \
  --network $NETWORK \
@@ -16,12 +15,7 @@ docker create \
  -v $MOUNT/mods:$SROOT/mods \
  --name factorio maxhougas/factorio:db \
  su -c "\
-  test ! -e factorio/saves/my-save.zip &&\
-   factorio/bin/x64/factorio \
-    --create factorio/saves/my-save.zip \
-    --map-gen-settings factorio/map-gen-settings.json \
-    --map-settings factorio/map-settings.json; \
-   factorio/bin/x64/factorio \
-    --start-server-load-latest \
-    --server-settings factorio/server-settings.json \
+  factorio/bin/x64/factorio \
+   --start-server-load-latest \
+   --server-settings factorio/server-settings.json \
  " user
