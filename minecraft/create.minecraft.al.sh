@@ -10,9 +10,10 @@ docker create \
  -p 0.0.0.0:25565:25565/tcp \
  -v $MOUNT/eula.txt:$SROOT/eula.txt \
  -v $MOUNT/server.properties:$SROOT/server.properties \
+ -v $MOUNT/user_jvm_args.txt:$SROOT/user_jvm_args.txt \
  -v $MOUNT/world:$SROOT/world \
  -v $MOUNT/mods:$SROOT/mods \
  --name minecraft maxhougas/minecraft:al \
  su -c "\
-  java -Xms512M -Xmx4G -jar server.jar nogui \
+  ./run.sh --nogui \
  " user
