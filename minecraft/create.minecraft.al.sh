@@ -12,7 +12,7 @@ docker create \
  -v $MOUNT/server.properties:$SROOT/server.properties \
  -v $MOUNT/world:$SROOT/world \
  -v $MOUNT/mods:$SROOT/mods \
- --name minecraft maxhougas/minecraft:al
+ --name minecraft maxhougas/minecraft:al \
  su -c "\
   java -Xms512M -Xmx4M -jar server.jar nogui \
  " user
