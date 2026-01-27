@@ -21,4 +21,4 @@ RUN \
   java -jar forge.jar --installServer \
  " user
 
-EXPOSE 25565
+EXPOSE 25565/tcp

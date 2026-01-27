@@ -1,9 +1,12 @@
 #!/bin/sh
 
-MOUNT="$(realpath $0 | grep -o '.*/')"mount
+NETWORK=bridge
 SROOT=/home/user
 
+MOUNT="$(realpath $0 | grep -o '.*/')"mount
+
 docker run -ti \
+ --network $NETWORK \
  -p 0.0.0.0:25565:25565/tcp \
  -v $MOUNT/eula.txt:$SROOT/eula.txt \
  -v $MOUNT/server.properties:$SROOT/server.properties \
@@ -13,7 +16,3 @@ docker run -ti \
  su -c "\
   java -Xms512M -Xmx4M -jar server.jar nogui
  " user
-
-# -v $MOUNT/eula.txt:/home/user/eula.txt \
-# -v $MOUNT/server.properties:/home/user/server.properties \
-
