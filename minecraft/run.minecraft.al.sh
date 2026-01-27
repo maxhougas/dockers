@@ -10,6 +10,9 @@ docker run -ti \
  -v $MOUNT/world:$SROOT/world \
  -v $MOUNT/mods:$SROOT/mods \
  --name minecraft maxhougas/minecraft:al
+ su -c "\
+  java -Xms512M -Xmx4M -jar server.jar nogui
+ " user
 
 # -v $MOUNT/eula.txt:/home/user/eula.txt \
 # -v $MOUNT/server.properties:/home/user/server.properties \
