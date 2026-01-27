@@ -18,7 +18,8 @@ RUN \
    grep -o https://maven.*forge-.*\.jar | head -1 \
   ) &&\
   java -jar server.jar --help &&\
-  java -jar forge.jar --installServer \
+  java -jar forge.jar --installServer &&\
+  chown -R user:user /home/user \
  " user
 
 EXPOSE 25565/tcp

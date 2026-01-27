@@ -14,6 +14,7 @@ docker create \
  -v $MOUNT/world:$SROOT/world \
  -v $MOUNT/mods:$SROOT/mods \
  --name minecraft maxhougas/minecraft:al \
- su -c "\
-  ./run.sh --nogui \
- " user
+ tail -f /dev/null
+# su -c "\
+#  ./run.sh --nogui \
+# " user
