@@ -5,7 +5,7 @@ SROOT=/home/user
 
 MOUNT="$(realpath $0 | grep -o '.*/')"mount
 
-docker run -ti \
+docker create \
  --network $NETWORK \
  -p 0.0.0.0:25565:25565/tcp \
  -v $MOUNT/eula.txt:$SROOT/eula.txt \
