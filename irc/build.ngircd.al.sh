@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -f dockerfile.irc.al -t maxhougas/irc:al .
+docker build -f dockerfile.ngircd.al -t maxhougas/ngircd:al .
