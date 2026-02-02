@@ -12,5 +12,5 @@ docker create \
  -v $MOUNT/Commands.txt:$SROOT/Commands.txt \
  --name irc maxhougas/ngircd:al \
  su -c "\
-  ngircd -nf ngircd.conf \
+  ngircd -nf ~/ngircd.conf \
  " user
