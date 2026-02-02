@@ -9,8 +9,8 @@ docker create \
  -p 0.0.0.0:6667:6667/tcp \
  -v $MOUNT/ngircd.conf:$SROOT/ngircd.conf \
  -v $MOUNT/motd:$SROOT/ngircd.motd \
- -v $MOUNT/Commands.txt:$SROOT/Commands.txt
+ -v $MOUNT/Commands.txt:$SROOT/Commands.txt \
  --name irc maxhougas/ngircd:al \
  su -c "\
-  ngircd -nf ngircd.conf
+  ngircd -nf ngircd.conf \
  " user
