@@ -1,10 +1,7 @@
-FROM alpine:3.23
-
-WORKDIR /home/user
+FROM maxhougas/alpbox:al
 
 RUN \
  apk add curl openjdk25-jre-headless &&\
- adduser -Dh /home/user user &&\
  sh -c "\
   curl -so /home/user/server.jar \
    $(curl -so -\
