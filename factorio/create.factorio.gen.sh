@@ -1,6 +1,5 @@
 #!/bin/sh
 
-NETWORK=bridge
 SROOT=/home/user/factorio
 SAVENAME='my-save.zip'
 MOUNT=$(realpath $0 | grep -o '.*/')mount
