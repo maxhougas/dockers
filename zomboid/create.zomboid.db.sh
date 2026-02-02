@@ -4,8 +4,7 @@ ADMINPASS=adminpass
 NETWORK=bridge
 SERVERNAME=servername
 SROOT=/home/user/Zomboid
-
-MOUNT="$(realpath $0 | grep -o '.*/')"mount
+MOUNT=$(realpath $0 | grep -o '.*/')mount
 
 docker create \
  --network $NETWORK \

@@ -3,8 +3,7 @@
 NETWORK=bridge
 SROOT=/home/user/factorio
 SAVENAME='my-save.zip'
-
-MOUNT="$(realpath $0 | grep -o '.*/')"mount
+MOUNT=$(realpath $0 | grep -o '.*/')mount
 
 docker run -ti \
  -v $MOUNT/map-gen-settings.json:$SROOT/map-gen-settings.json \

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MOUNT="$(realpath $0 | grep -o '^.*/')mount"
+MOUNT=$(realpath $0 | grep -o '^.*/')mount
 
 docker create \
  -v $MOUNT/missions:/home/user/Steam/userdata \

@@ -2,8 +2,7 @@
 
 NETWORK=bridge
 SROOT=/home/user
-
-MOUNT="$(realpath $0 | grep -o '.*/')"mount
+MOUNT=$(realpath $0 | grep -o '.*/')mount
 
 docker create \
  --network $NETWORK \

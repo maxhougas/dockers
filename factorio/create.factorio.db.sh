@@ -2,7 +2,7 @@
 
 NETWORK=bridge
 SROOT=/home/user/factorio
-MOUNT=$(realpath $0 | grep -Po '.*/')mount
+MOUNT=$(realpath $0 | grep -o '.*/')mount
 
 docker create \
  --network $NETWORK \
