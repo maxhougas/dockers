@@ -1,0 +1,13 @@
+FROM maxhougas/steambox:db 
+RUN \
+ apt update &&\
+ apt install -y bzip2 &&\
+ su -c '\
+  wget -qO - -- https://files.teamspeak-services.com/releases/server/3.13.7/teamspeak3-server_linux_amd64-3.13.7.tar.bz2 |\
+  tar -xf - -C /home/user/ &&\
+  touch /home/user/teamspeak3-server_linux_amd64/.ts3server_license_accepted
+ ' user
+WORKDIR /home/user/teamspeak3-server_linux_amd64
+EXPOSE \
+ 30033/tcp \
+ 9987/udp
