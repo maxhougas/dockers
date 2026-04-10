@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/dotnet/runtime:8.0-bookworm-slim-amd64
+
+ENV SRV=/home/user/vs
+ENV DATA=/home/user/data
+
+RUN useradd -m user &&\
+ apt update && apt install -y wget &&\
+ su -c '\
+  mkdir $SRV &&\
+  wget -qO - https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_1.21.6.tar.gz | tar -C $SRV -xzf - &&\
+  for num in $(ls -1 $SRV | grep -o '^[0-9]*$'); do \
+   tar -C $SRV/$num -cf - $(ls $SRV/$num) | tar -C $SRV -xf -; \
+   rm -rf $SRV/$num; \
+  done &&\
+  dotnet $SRV/VintagestoryServer.dll --dataPath $DATA --genconfig \
+ ' user
+
+WORKDIR $SRV
+EXPOSE 42420
