@@ -15,5 +15,5 @@ RUN useradd -m user &&\
   dotnet $SRV/VintagestoryServer.dll --dataPath $DATA --genconfig \
  ' user
 
-WORKDIR $SRV
+WORKDIR $DATA
 EXPOSE 42420

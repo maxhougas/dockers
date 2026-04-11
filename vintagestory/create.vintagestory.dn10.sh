@@ -1,18 +1,17 @@
 #/bin/sh
 
 MOUNT="$(realpath $0 | grep -o '.*/')"mount
-SROOT=/home/user
+NETWORK=bridge
 
 docker create \
+ --network $NETWORK \
  -p 0.0.0.0:42420:42420 \
  -v $MOUNT/serverconfig.json:/home/user/data/serverconfig.json \
- -v $MOUNT/usermods:/home/user/usermods \
  -v $MOUNT/Saves:/home/user/data/Saves \
+ -v $MOUNT/usermods:/home/user/usermods \
  --name vintagestory maxhougas/vintagestory:dn10 \
  su -c '\
   dotnet $SRV/VintagestoryServer.dll \
-  --dataPath $DATA ;\
-  tail -f /dev/null \
+  --dataPath $DATA \
  ' user
 
-#  LD_LIBRARY_PATH=$SRV/Lib \
