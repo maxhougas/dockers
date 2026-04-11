@@ -14,14 +14,6 @@ docker create \
  -v $MOUNT/Commands.txt:$SROOT/Commands.txt \
  --name combox maxhougas/combox:al \
  su -c "\
-  umurmur -dc ~/umurmurd.conf \
+  umurmurd -dc ~/umurmurd.conf \
   ngircd -nf ~/ngircd.conf \
  " user
-
-docker create \
- --network $NETWORK \
- -p 0.0.0.0:64738:64738 \
- -v /home/user/umurmurd.conf:$MOUNT/umurmurd.conf \
- --name murmur maxhougas/umurmurd:al \
- su -c 'umurmurd -dc umurmurd.conf' user
-
