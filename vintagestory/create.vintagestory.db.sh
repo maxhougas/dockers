@@ -9,7 +9,7 @@ docker create \
  -v $MOUNT/serverconfig.json:/home/user/data/serverconfig.json \
  -v $MOUNT/Saves:/home/user/data/Saves \
  -v $MOUNT/usermods:/home/user/usermods \
- --name vintagestory maxhougas/vintagestory:dn8 \
+ --name vintagestory maxhougas/vintagestory:db \
  su -c '\
   dotnet $SRV/VintagestoryServer.dll \
   --dataPath $DATA \
