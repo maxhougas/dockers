@@ -8,10 +8,15 @@
   "Ip": null,
   "Port": 42420,
   "Upnp": false,
+  "UpnpInfiniteLifetime": false,
   "CompressPackets": true,
   "AdvertiseServer": false,
+  "LastLaunchMods": null,
+  "LastLaunchPlaystyle": null,
   "MaxClients": 16,
   "MaxClientsInQueue": 0,
+  "WarnClientsAfterAfkSeconds": 0,
+  "KickClientsAfterAfkSeconds": 0,
   "PassTimeWhenEmpty": false,
   "MasterserverUrl": "http://masterserver.vintagestory.at/api/v1/servers/",
   "ModDbUrl": "https://mods.vintagestory.at/",
@@ -202,12 +207,13 @@
       "Code": "sumod",
       "PrivilegeLevel": 200,
       "Name": "Survival Moderator",
-      "Description": "Can use/place/break blocks everywhere (priv level 200), create/manage player groups, chat, kick/ban players and do serverwide announcements. Can claim an area of up to 4 chunks.",
+      "Description": "Can use/place/break blocks everywhere (priv level 200), create/manage own/other player groups, chat, kick/ban players and do serverwide announcements. Can claim an area of up to 4 chunks.",
       "DefaultSpawn": null,
       "ForcedSpawn": null,
       "Privileges": [
         "controlplayergroups",
         "manageplayergroups",
+        "manageotherplayergroups",
         "chat",
         "areamodify",
         "build",
@@ -238,12 +244,13 @@
       "Code": "crmod",
       "PrivilegeLevel": 500,
       "Name": "Creative Moderator",
-      "Description": "Can use/place/break blocks everywhere (priv level 500), create/manage player groups, chat, kick/ban players, fly and set his own or other players game modes (= allows fly and change of move speed). Can claim an area of up to 40 chunks.",
+      "Description": "Can use/place/break blocks everywhere (priv level 500), create/manage own/other player groups, chat, kick/ban players, fly and set his own or other players game modes (= allows fly and change of move speed). Can claim an area of up to 40 chunks.",
       "DefaultSpawn": null,
       "ForcedSpawn": null,
       "Privileges": [
         "controlplayergroups",
         "manageplayergroups",
+        "manageotherplayergroups",
         "chat",
         "areamodify",
         "build",
@@ -308,7 +315,8 @@
         "commandplayer",
         "controlplayergroups",
         "manageplayergroups",
-        "selfkill"
+        "selfkill",
+        "manageotherplayergroups"
       ],
       "RuntimePrivileges": [],
       "DefaultGameMode": 1,
@@ -325,13 +333,13 @@
   ],
   "DefaultRoleCode": "suplayer",
   "ModPaths": [
-    "Mods",
-    "./Mods"
+    "/home/user/vs/Mods",
+    "/home/user/usermods"
   ],
   "AntiAbuse": 0,
   "WorldConfig": {
     "Seed": null,
-    "SaveFileLocation": "./Saves/default.vcdbs",
+    "SaveFileLocation": "/home/user/data/Saves/default.vcdbs",
     "WorldName": "A new world",
     "AllowCreativeMode": true,
     "PlayStyle": "surviveandbuild",
@@ -347,7 +355,7 @@
   "GroupChatHistorySize": 20,
   "MaxOwnedGroupChannelsPerUser": 10,
   "OnlyWhitelisted": false,
-  "WhitelistMode": 0,
+  "WhitelistMode": 1,
   "VerifyPlayerAuth": true,
   "DefaultSpawn": null,
   "AllowPvP": true,
@@ -372,5 +380,6 @@
   "LoginFloodProtection": false,
   "TemporaryIpBlockList": false,
   "DisableModSafetyCheck": false,
+  "DisableAutoRemap": false,
   "DieAboveMemoryUsageMb": 50000
 }
