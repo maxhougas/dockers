@@ -8,10 +8,10 @@ RUN \
  wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb &&\
  dpkg -i packages-microsoft-prod.deb &&\
  rm packages-microsoft-prod.deb &&\
- apt update && apt install -y dotnet-runtime-10.0 &&\
+ apt update && apt install -y dotnet-runtime-8.0 &&\
  su -c '\
   mkdir $SRV &&\
-  wget -qO - https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_1.22.1.tar.gz | tar -C $SRV -xzf - &&\
+  wget -qO - https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_1.21.6.tar.gz | tar -C $SRV -xzf - &&\
   for num in $(ls -1 $SRV | grep -o '^[0-9]*$'); do \
    tar -C $SRV/$num -cf - $(ls $SRV/$num) | tar -C $SRV -xf -; \
    rm -rf $SRV/$num; \
